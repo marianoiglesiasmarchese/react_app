@@ -12,6 +12,7 @@ class App extends Component {
     super(props);
     this.state = {
       data: [],
+      favorites: [],
     }
   }
 
@@ -23,11 +24,27 @@ class App extends Component {
     });
   }
 
+  handleAddFavorite = movie => {
+    if( this.state.favorites.includes( each => movie.title !== each.title )){
+      this.setState({
+        favorites: [...this.state.favorites, movie]
+      });
+    }
+  }
+
+  clearState = () => {
+    this.setState({
+      favorites: []
+    });
+  }
+
   render() {
     return (
       <div className="container">
         <Search onSearch={this.handleSearchChange} />
-        <Grid data= {this.state.data}/>
+        <span className="text">FAVORITES: {`${this.state.favorites.length}`}</span>
+        <button onClick={this.clearState}>CLEAR</button>
+        <Grid data={this.state.data} addFavorite={this.handleAddFavorite} />
       </div>
     );
   }
