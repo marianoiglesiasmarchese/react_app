@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
-import Api from './Api';
+import '../App.css';
+import Api from '../utils/Api';
 import Search from './Search';
 import Grid from './Grid';
 
 const api = new Api();
 
-class App extends Component {
+class Home extends Component {
 
   constructor(props){
     super(props);
@@ -50,4 +50,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;

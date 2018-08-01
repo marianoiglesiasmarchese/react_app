@@ -1,6 +1,6 @@
 import React from 'react';
 import Movie from './Movie';
-import './App.css';
+import '../App.css';
 
 const Grid = ({ data, addFavorite }) => (
     <div className="grid">
