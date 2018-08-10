@@ -25,7 +25,9 @@ class Home extends Component {
   }
 
   handleAddFavorite = movie => {
-    if( this.state.favorites.includes( each => movie.title !== each.title )){
+    const includes = this.state.favorites.find( each =>  movie.title !== each.title );
+    console.log(includes);
+    if(includes === undefined){
       this.setState({
         favorites: [...this.state.favorites, movie]
       });

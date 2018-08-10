@@ -1,9 +1,14 @@
 import React from 'react';
 import './App.css';
 import Home from './modules/Home';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-const Movie = ({ data, addFavorite }) => (
-  <Home/>
+
+const App = () => (
+  <Router>
+    <Route exact path="/" component={Home} /> 
+</Router>
+  
 );
 
-export default Movie;
+export default App;
