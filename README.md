@@ -13,6 +13,12 @@ REACT_APP_SERVER_URL=http://www.some_url.com
 
 ```
 
+## download dependencies
+
+```
+npm install
+```
+
 ## RUN APP
 
 ```
