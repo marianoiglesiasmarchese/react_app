@@ -18,7 +18,6 @@ class StorePicker extends React.Component {
         return (
             <>
             {/* comment */}
-            <p> fish </p>
             <form className='store-selector' onSubmit={this.handleSubmit}>    
                 <h2> please inser a store </h2>
                 <input 
