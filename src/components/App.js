@@ -10,9 +10,10 @@ class App extends React.Component{
     state = {
         fishes: {},
         order: {},
-        number: 0,
-        string: '',
-        list: [],
+        // number: 0,
+        // string: '',
+        // list: [],
+        // disctionary: {},
     };
 
     // all the functions that update states should live in the same component that the state that is changing
@@ -56,7 +57,7 @@ class App extends React.Component{
                         }
                     </ul>
                 </div>
-                <Order /> 
+                <Order fishes={this.state.fishes} order={this.state.order} /> 
                 <Inventory addFish={this.addFish} loadSampleFishes={this.loadSampleFishes}/> 
             </div>
         )
