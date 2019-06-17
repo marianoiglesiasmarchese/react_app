@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Order from './Order';
 import Inventory from './Inventory';
+import fishes from '../sample-fishes';
 
 class App extends React.Component{
 
@@ -13,6 +14,7 @@ class App extends React.Component{
         list: [],
     };
 
+    // all the functions that update states should live in the same component that the state that is changing
     addFish = (fish) => {
         // 1. take a copy of the existing state
         const fishes={...this.state.fishes};
@@ -27,6 +29,12 @@ class App extends React.Component{
         // this.setState({ fishes });
     };
 
+    loadSampleFishes = () => {
+        this.setState({
+            fishes: fishes
+        });
+    };
+
     render(){
         return (
             <div className="catch-of-the-day">
@@ -34,7 +42,7 @@ class App extends React.Component{
                     <Header tagline="fresh fish" bol={true} count="400" /> 
                 </div>
                 <Order /> 
-                <Inventory addFish={this.addFish}/> 
+                <Inventory addFish={this.addFish} loadSampleFishes={this.loadSampleFishes}/> 
             </div>
         )
     }
