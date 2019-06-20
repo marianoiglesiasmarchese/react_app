@@ -4,6 +4,7 @@ import Order from './Order';
 import Inventory from './Inventory';
 import Fish from './Fish';
 import fishes from '../sample-fishes';
+import base from '../base';
 
 class App extends React.Component{
 
@@ -14,6 +15,19 @@ class App extends React.Component{
         // string: '',
         // list: [],
         // disctionary: {},
+    };
+
+    // life cicles methods: https://reactjs.org/docs/react-component.html
+    componentDidMount(){
+        const { params } = this.props.match;
+        this.ref = base.syncState(`${params.storeId}/fishes`, {
+            context : this,
+            state : 'fishes'
+        });
+    };
+
+    componentWillUnmount(){
+        base.removeBinding(this.ref);
     };
 
     // all the functions that update states should live in the same component that the state that is changing
