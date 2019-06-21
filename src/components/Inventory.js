@@ -8,7 +8,14 @@ class Inventory extends React.Component{
             <div className="inventory">
                 <h2>Inventory</h2>
                 {/* Because we can't accesss to a key in a component, we have to pass it in another prop like "index" in this case */} 
-                {Object.keys(this.props.fishes).map(key => <EditFishForm key={key} index={key} fish={this.props.fishes[key]} updateFish={this.props.updateFish}/>)}
+                {Object.keys(this.props.fishes).map(key => 
+                    <EditFishForm 
+                    key={key} 
+                    index={key} 
+                    fish={this.props.fishes[key]} 
+                    updateFish={this.props.updateFish}
+                    deleteFish={this.props.deleteFish}
+                    />)}
                 <AddFishForm  addFish={this.props.addFish}/>
                 <button onClick={this.props.loadSampleFishes}>Load sample fishes</button>
             </div>

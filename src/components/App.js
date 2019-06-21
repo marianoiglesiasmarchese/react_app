@@ -67,6 +67,16 @@ class App extends React.Component {
     this.setState({ fishes });
   };
 
+  deleteFish = (key) => {
+    // 1. take a copy of the existing state
+    const fishes = { ...this.state.fishes };
+    // 2. removing an existing fish
+    // In Firebase, to remove an object you should assign null value
+    fishes[key] = null;
+    // 3. set the updated state
+    this.setState({ fishes });
+  };
+
   loadSampleFishes = () => {
     this.setState({
       fishes: fishes
@@ -79,6 +89,16 @@ class App extends React.Component {
     // 2. either add the order, or update the number in our order
     order[key] = order[key] + 1 || 1;
     // 3. call setStatus to update our state object
+    this.setState({ order });
+  };
+
+  removeFromOrder = (key) => {
+    // 1. take a copy of the existing state
+    const order = { ...this.state.order };
+    // 2. removing an existing fish
+    // In localStorage, to remove an object you should user delefe method
+    delete order[key];
+    // 3. set the updated state
     this.setState({ order });
   };
 
@@ -98,10 +118,11 @@ class App extends React.Component {
             ))}
           </ul>
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order} />
+        <Order fishes={this.state.fishes} order={this.state.order} removeFromOrder={this.removeFromOrder} />
         <Inventory
           addFish={this.addFish}
           updateFish={this.updateFish}
+          deleteFish={this.deleteFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes}
         />
